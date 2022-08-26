@@ -3,7 +3,7 @@ import time
 from fastapi import FastAPI, BackgroundTasks, Request
 from pathforger import getProgression, fixProgression, GRAPH_DICT, NODES, Progression
 from transport import ensure_progression_bg
-from chrdiotypes.transport import ProgressionRequest
+from chrdiotypes.musical import ProgressionRequest
 
 with open("config.json", "r") as config_file:
     config = json.load(config_file)
