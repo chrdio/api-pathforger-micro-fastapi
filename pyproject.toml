@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "micropathforger"
-version = "0.1.0"
+version = "0.2.0"
 description = "A microservice for musical progressions generation."
 authors = ["Arthur Ryzhak <ryzhakar@gmail.com>"]
 
@@ -9,7 +9,8 @@ python = "^3.8"
 fastapi = "^0.79"
 uvicorn = "^0.18.2"
 aiohttp = "^3.8.1"
-pathforger = {path = "../pathforger/dist/pathforger-0.1.6-py3-none-any.whl"}
+pathforger = {path = "../pathforger/dist/pathforger-0.2.1-py3-none-any.whl"}
+chrdiotypes = {path = "../chrdiotypes/dist/chrdiotypes-0.1.0-py3-none-any.whl"}
 
 [tool.poetry.dev-dependencies]
 
