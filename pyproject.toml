@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "micropathforger"
-version = "0.2.0"
+version = "0.2.1"
 description = "A microservice for musical progressions generation."
 authors = ["Arthur Ryzhak <ryzhakar@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 fastapi = "^0.79"
 uvicorn = "^0.18.2"
 aiohttp = "^3.8.1"
