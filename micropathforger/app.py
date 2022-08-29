@@ -1,20 +1,13 @@
-import json
 import time
 from fastapi import FastAPI, BackgroundTasks, Request
 from pathforger import getProgression, fixProgression, GRAPH_DICT, NODES, Progression
-from transport import ensure_progression_bg
+from .transport import ensure_progression_bg
 from chrdiotypes.musical import ProgressionRequest
 
-with open("config.json", "r") as config_file:
-    config = json.load(config_file)
-    TITLE = config["title"]
-    PORT = config["port"]
-    HOST = config["host"]
-    RELOAD = config["reload"]
+
 
 app = FastAPI(
     docs_url="/",
-    title=TITLE,
 )
 @app.middleware("http")
 async def add_process_time(request: Request, call_next):
@@ -31,7 +24,7 @@ def generate_progression(
     request: ProgressionRequest,
     background_tasks: BackgroundTasks,
     ):
-    progression = getProgression(length, GRAPH_DICT[request.graph], NODES)
+    progression = getProgression(length, GRAPH_DICT[request.graph.value], NODES)
     background_tasks.add_task(ensure_progression_bg, progression)
     return progression
 
@@ -46,8 +39,4 @@ def amend_progression(
     background_tasks.add_task(ensure_progression_bg, return_progression)
     
     return return_progression
-
-
-if __name__=="__main__":
-    import uvicorn
-    uvicorn.run("main:app", host=HOST, port=PORT, reload=RELOAD, debug=True)
+ 
