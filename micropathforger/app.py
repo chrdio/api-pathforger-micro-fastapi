@@ -35,7 +35,7 @@ def amend_progression(
     progression: Progression,
     background_tasks: BackgroundTasks,
     ):
-    return_progression = fixProgression(progression, index, GRAPH_DICT[progression.graph], NODES)
+    return_progression = fixProgression(progression, index, GRAPH_DICT[progression.graph.value], NODES)
     background_tasks.add_task(ensure_progression_bg, return_progression)
     
     return return_progression

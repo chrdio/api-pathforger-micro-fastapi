@@ -8,6 +8,6 @@ async def ensure_progression_bg(progression: Progression):
     session = ClientSession()
     endpoint = ENDPOINTS["microaccountant/music"]
     microaccountant_response = await post_single_request(endpoint, construct_path_transport(progression), session=session)
-
-    await session.close()
-    return microaccountant_response
+    # Tests provide no remote server connection
+    await session.close() # pragma: no cover
+    return microaccountant_response # pragma: no cover
