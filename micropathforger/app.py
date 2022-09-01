@@ -1,5 +1,5 @@
 import time
-from fastapi import FastAPI, BackgroundTasks, Request
+from fastapi import FastAPI, BackgroundTasks, Request, Response
 from pathforger import getProgression, fixProgression, GRAPH_DICT, NODES, Progression
 from .transport import ensure_progression_bg
 from chrdiotypes.musical import ProgressionRequest
@@ -40,3 +40,6 @@ def amend_progression(
     
     return return_progression
  
+@app.get("/healthcheck")
+async def healthcheck():
+    return Response(status_code=200)
