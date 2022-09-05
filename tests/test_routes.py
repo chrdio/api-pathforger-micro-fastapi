@@ -76,6 +76,9 @@ def test_amendment_422(index):
     response = TEST_APP.post(f'/amend/{str(index)}', payload)
     assert response.status_code == 422
 
+def test_healthcheck():
+    assert TEST_APP.get("/healthcheck").status_code == 200
+
 
 
 def test_endpoint_builder():
