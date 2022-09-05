@@ -1,6 +1,6 @@
 import json
 from .schemas import Endpoint
 
-with open('.endpoints.json', 'r') as endpoints_file:
+with open(".endpoints.json", "r") as endpoints_file:
     endpoints = json.load(endpoints_file)
-    ENDPOINTS = {endpoint['name']: Endpoint(**endpoint) for endpoint in endpoints}
+    ENDPOINTS = {endpoint["name"]: Endpoint(**endpoint) for endpoint in endpoints}

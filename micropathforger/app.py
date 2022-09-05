@@ -5,10 +5,11 @@ from .transport import ensure_progression_bg
 from chrdiotypes.musical import ProgressionRequest
 
 
-
 app = FastAPI(
     docs_url="/",
 )
+
+
 @app.middleware("http")
 async def add_process_time(request: Request, call_next):
     start_time = time.time()
@@ -23,7 +24,7 @@ def generate_progression(
     length: int,
     request: ProgressionRequest,
     background_tasks: BackgroundTasks,
-    ):
+):
     progression = getProgression(length, GRAPH_DICT[request.graph.value], NODES)
     background_tasks.add_task(ensure_progression_bg, progression)
     return progression
@@ -34,12 +35,15 @@ def amend_progression(
     index: int,
     progression: Progression,
     background_tasks: BackgroundTasks,
-    ):
-    return_progression = fixProgression(progression, index, GRAPH_DICT[progression.graph.value], NODES)
+):
+    return_progression = fixProgression(
+        progression, index, GRAPH_DICT[progression.graph.value], NODES
+    )
     background_tasks.add_task(ensure_progression_bg, return_progression)
-    
+
     return return_progression
- 
+
+
 @app.get("/healthcheck")
 async def healthcheck():
     return Response(status_code=200)
