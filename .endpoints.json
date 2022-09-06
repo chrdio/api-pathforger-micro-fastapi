@@ -1,0 +1,8 @@
+[
+  {
+    "name": "microaccountant/music",
+    "host": "127.0.0.1",
+    "port": "8004",
+    "path": "ensure/music"
+  }
+]
