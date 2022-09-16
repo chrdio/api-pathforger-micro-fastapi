@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "micropathforger"
-version = "0.2.1"
+version = "1.0.0"
 description = "A microservice for musical progressions generation."
 authors = ["Arthur Ryzhak <ryzhakar@gmail.com>"]
 
