@@ -1,2 +1,2 @@
 from .endpoints import ENDPOINTS
-from .background import ensure_progression_bg
+from .background import register_with_database
