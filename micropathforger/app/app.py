@@ -1,8 +1,8 @@
 import time
 from fastapi import FastAPI, BackgroundTasks, Request, Response
 from pathforger import getProgression, fixProgression, GRAPH_DICT, NODES, Progression
-from .transport import ensure_progression_bg
 from chrdiotypes.musical import ProgressionRequest
+from ..transport import ensure_progression_bg
 
 
 app = FastAPI(
